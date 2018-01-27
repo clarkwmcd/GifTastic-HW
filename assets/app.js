@@ -6,9 +6,8 @@ $(document).ready(function() {
   $("#submit-btn").on("click", function(event) {
     event.preventDefault();
     var inputAnimal = $("#input-animal").val().trim().toUpperCase();
-    $("#button-group").append("<button type='button' class='btn btn-warning' id='name-"+inputAnimal+"' value=" + inputAnimal + ">" + inputAnimal + "</button> ")
+    $("#button-group").append("<button type='button' class='btn btn-warning' id='name-"+inputAnimal+"'>" + inputAnimal + "</button> ")
     topics.push(inputAnimal);
-    console.log(inputAnimal);
     $("#input-animal").val(" ")
   });
 
@@ -23,7 +22,6 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
 
       for(i=0; i<10; i++) {
       var giphyimg = $("<img>");
@@ -37,11 +35,9 @@ $(document).ready(function() {
       giphyimg.attr("data-original", original);
 
       $("#gif-container").append("<br></br>");
-      $("#gif-container").append(giphyimg);
-      $("#gif-container").append("  Rating: " + rating);
+      $("#gif-container").append(giphyimg).append("<br>");
+      $("#gif-container").append("  Rating: " + rating.toUpperCase());
       };
-
-
 
     });
 
