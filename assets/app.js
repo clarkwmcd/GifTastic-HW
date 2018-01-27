@@ -15,14 +15,13 @@ $(document).ready(function() {
 
     var animalName = $(this).text()
     var APIKey = "6J46Hn8jDjSJL8PalH9fptqrq9IkxvGg";
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animalName + "&api_key=" + APIKey + "&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalName + "&api_key=" + APIKey + "&limit=10";
     $("#gif-container").text(" ");
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-
       for(i=0; i<10; i++) {
       var giphyimg = $("<img>");
       var still = response.data[i].images.original_still.url
